@@ -19,7 +19,7 @@ public class AnimeListService {
 
 	private AnimeListRepository alr;
 	
-	public AnimeListService() {
+	public AnimeListService(AnimeListRepository alr) {
 		super();
 		this.alr = alr;
 	}
