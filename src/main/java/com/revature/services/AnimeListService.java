@@ -14,15 +14,15 @@ import com.revature.repositories.AnimeListRepository;
 
 @Service
 public class AnimeListService {
-	/**
-	 * 
-	 */
-	public AnimeListService() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
+	
+ 
 
 	private AnimeListRepository alr;
+	
+	public AnimeListService() {
+		super();
+		this.alr = alr;
+	}
 	
 	public List<AnimeList> getAnimeList(){
 		return alr.findAll();
