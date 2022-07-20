@@ -2,7 +2,6 @@ HELP.md
 target/
 src/main/resources
 src/main/java/com/revature/driver
-src/main/java/com/revature/controllers
 
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
