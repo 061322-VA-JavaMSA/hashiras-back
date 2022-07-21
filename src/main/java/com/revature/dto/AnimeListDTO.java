@@ -15,22 +15,22 @@ public class AnimeListDTO {
 	private String status;
 	
 	public AnimeListDTO(AnimeList al) {
-		this.id = al.getId();
+//		this.id = al.getId();
 		this.anime_id = al.getAnimeId();
 		this.user = al.getUser();
-		this.usercomment = al.getUsercomment();
+//		this.usercomment = al.getUsercomment();
 		this.user_rating = al.getUser_rating();
 		this.status = al.getStatus().toString();
 	}
  
-	public int getId() {
-		return id;
-	}
-
-
-	public void setId(int id) {
-		this.id = id;
-	}
+//	public int getId() {
+//		return id;
+//	}
+//
+//
+//	public void setId(int id) {
+//		this.id = id;
+//	}
 
 
 	public int getAnime_id() {
@@ -53,14 +53,14 @@ public class AnimeListDTO {
 	}
 
 
-	public String getUsercomment() {
-		return usercomment;
-	}
-
-
-	public void setUsercomment(String usercomment) {
-		this.usercomment = usercomment;
-	}
+//	public String getUsercomment() {
+//		return usercomment;
+//	}
+//
+//
+//	public void setUsercomment(String usercomment) {
+//		this.usercomment = usercomment;
+//	}
 
 
 	public int getUser_rating() {

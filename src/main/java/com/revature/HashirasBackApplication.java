@@ -10,14 +10,14 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.stereotype.Component;
 
 import com.revature.models.AnimeList;
-<<<<<<< HEAD
+
 import com.revature.services.AnimeListService;
-=======
+
 import com.revature.models.ListStatus;
 import com.revature.models.User;
 import com.revature.services.AnimeListService;
 import com.revature.services.UserService;
->>>>>>> a7a375896a670d4a66c90ddeffdcb40af6c78275
+
 
 @SpringBootApplication
 public class HashirasBackApplication {
@@ -26,7 +26,7 @@ public class HashirasBackApplication {
 		SpringApplication.run(HashirasBackApplication.class, args);
 	}
 	
-<<<<<<< HEAD
+
 	@Component
 	class AppStartupRunner implements ApplicationRunner {
 	
@@ -40,8 +40,8 @@ public class HashirasBackApplication {
 
 	    }
 	}
-}
-=======
+
+
 
 }
 //@Component
@@ -77,4 +77,3 @@ public class HashirasBackApplication {
 //    	us.addUser(user);
 //    }
 //}
->>>>>>> a7a375896a670d4a66c90ddeffdcb40af6c78275

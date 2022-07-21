@@ -17,21 +17,23 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="lists")
-public class AnimeList  {
+public class AnimeList implements Serializable  {
+	
+//	@Id
+//	@GeneratedValue(strategy=GenerationType.IDENTITY)
+//	private int id;
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int id;
-	
 	@Column (name = "anime_id")
  	private int animeId;
 	 
-	@ManyToOne 
+	
+	@ManyToOne(targetEntity=User.class)
 	@JoinColumn(name = "user_id")		
 	private User user;
     
-    @Column
-	private String usercomment;
+//    @Column
+//	private String usercomment;
 	
     @Column
 	private int user_rating;
@@ -39,13 +41,13 @@ public class AnimeList  {
 	@Enumerated(EnumType.STRING)
 	private ListStatus status;
 
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
+//	public int getId() {
+//		return id;
+//	}
+//
+//	public void setId(int id) {
+//		this.id = id;
+//	}
 
  
 	public User getUser() {
@@ -56,13 +58,13 @@ public class AnimeList  {
 		this.user = user;
 	}
 
-	public String getUsercomment() {
-		return usercomment;
-	}
-
-	public void setUsercomment(String usercomment) {
-		this.usercomment = usercomment;
-	}
+//	public String getUsercomment() {
+//		return usercomment;
+//	}
+//
+//	public void setUsercomment(String usercomment) {
+//		this.usercomment = usercomment;
+//	}
 
 	public int getUser_rating() {
 		return user_rating;
@@ -90,7 +92,7 @@ public class AnimeList  {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(animeId, id, status, user, user_rating, usercomment);
+		return Objects.hash(animeId, status, user, user_rating);
 	}
 
 	@Override
@@ -102,8 +104,8 @@ public class AnimeList  {
 		if (getClass() != obj.getClass())
 			return false;
 		AnimeList other = (AnimeList) obj;
-		return animeId == other.animeId && id == other.id && status == other.status && Objects.equals(user, other.user)
-				&& user_rating == other.user_rating && Objects.equals(usercomment, other.usercomment);
+		return animeId == other.animeId && status == other.status && Objects.equals(user, other.user)
+				&& user_rating == other.user_rating;
 	}
 
  
