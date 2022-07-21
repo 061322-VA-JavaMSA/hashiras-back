@@ -15,6 +15,7 @@ import com.revature.services.AnimeListService;
 
 import com.revature.models.ListStatus;
 import com.revature.models.User;
+import com.revature.repositories.UserRepository;
 import com.revature.services.AnimeListService;
 import com.revature.services.UserService;
 
@@ -27,21 +28,7 @@ public class HashirasBackApplication {
 	}
 	
 
-	@Component
-	class AppStartupRunner implements ApplicationRunner {
-	
-		@Autowired
-		private AnimeListService as;
-		
-	    @Override
-	    public void run(ApplicationArguments args) throws Exception {
-			List<AnimeList> al = as.getAnimeList();
-			System.out.println(al.toString());
-
-	    }
-	}
-
-
+ 
 
 }
 //@Component
@@ -51,19 +38,19 @@ public class HashirasBackApplication {
 //	private AnimeListService as;
 //	@Autowired
 //	private UserService us;
-//	
+//	@Autowired
+//	private UserRepository ur;
 //    @Override
 //    public void run(ApplicationArguments args) throws Exception {
 //		List<AnimeList> al = as.getAnimeList();
 //		System.out.println(al.toString());
 //    	User user = new User();
-//  	
-//    	user.setId(6);
-//    	user.setFname("g");;
-//    	AnimeList animeList = new AnimeList();
+  	
+//    	user = us.getUserById(1);
+//     	AnimeList animeList = new AnimeList();
 //    	animeList.setAnimeId(20);
 //    	animeList.setUser(user);
-//    	animeList.setStatus(ListStatus.VIEWED);
+//    	animeList.setStatus(ListStatus.CURRENTLY);
 //    	as.addAnimeList(animeList);
 //    	
 //    	List<User> users = us.getUsers();
@@ -75,5 +62,9 @@ public class HashirasBackApplication {
 //    	user.setLname("albert");
 //    	user.setStatus(1);
 //    	us.addUser(user);
+//    	User principal = ur.findUserByUsername("LaneM123");
+//    	
+//    	System.out.println(principal);
+ 
 //    }
 //}

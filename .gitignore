@@ -6,6 +6,9 @@ src/main/resources
 !**/src/main/**/target/
 !**/src/test/**/target/
 
+### SVN ###
+.svn/
+
 ### STS ###
 .apt_generated
 .classpath
