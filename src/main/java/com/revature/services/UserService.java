@@ -13,7 +13,8 @@ import com.revature.repositories.UserRepository;
 
 @Service
 public class UserService {
-
+	
+	@Autowired
 	private UserRepository ur;
 	
 	 
@@ -34,7 +35,16 @@ public class UserService {
 	
 	@Transactional
 	public User addUser(User user) {
-			
 		return ur.save(user);
+	}
+	
+	@Transactional
+	public int updateInfo(String fname,String lname,String email, int id) {
+		return updateInfo( fname, lname, email,  id);
+	}
+	
+	@Transactional
+	public int updatePassword(String password, int id) {
+		return updatePassword( password,  id);
 	}
 }
