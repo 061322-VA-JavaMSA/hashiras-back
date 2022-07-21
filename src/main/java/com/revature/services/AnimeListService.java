@@ -5,6 +5,7 @@ import java.util.List;
 import javax.persistence.Id;
 import javax.transaction.Transactional;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.revature.exceptions.AnimeListNotFoundException;
@@ -16,8 +17,6 @@ import com.revature.repositories.AnimeListRepository;
 @Service
 public class AnimeListService {
 	
- 
-
 	private AnimeListRepository alr;
 	
 	public AnimeListService(AnimeListRepository alr) {

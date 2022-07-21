@@ -13,7 +13,12 @@ public class UserDTO {
 	private String email;
 	private int status;
 	public UserDTO(User u) {
-		// TODO Auto-generated constructor stub
+		this.id = u.getId();
+		this.username = u.getUsername();
+		this.fname = u.getFname();
+		this.lname = u.getLname();
+		this.email = u.getEmail();
+		this.status = u.getStatus();
 	}
 	public int getId() {
 		return id;

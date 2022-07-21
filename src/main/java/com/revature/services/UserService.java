@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.transaction.Transactional;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.revature.exceptions.UserNotFoundException;
@@ -15,7 +16,7 @@ public class UserService {
 
 	private UserRepository ur;
 	
-	// @Autowired 
+	 
 	public UserService(UserRepository ur) {
 		super();
 		this.ur = ur;

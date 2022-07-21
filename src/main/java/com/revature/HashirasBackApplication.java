@@ -29,8 +29,9 @@ public class HashirasBackApplication {
 //
 //	@Autowired
 //	private AnimeListService as;
+//	@Autowired
 //	private UserService us;
-	
+//	
 //    @Override
 //    public void run(ApplicationArguments args) throws Exception {
 //		List<AnimeList> al = as.getAnimeList();
@@ -47,6 +48,12 @@ public class HashirasBackApplication {
 //    	
 //    	List<User> users = us.getUsers();
 //    	System.out.println(users.toString());
-    	
+//    	user.setUsername("charles");;
+//    	user.setEmail("charles@charles.com");
+//    	user.setPassword("12345");
+//    	user.setFname("charles");
+//    	user.setLname("albert");
+//    	user.setStatus(1);
+//    	us.addUser(user);
 //    }
 //}
