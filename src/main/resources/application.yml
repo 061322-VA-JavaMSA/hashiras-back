@@ -1,8 +1,8 @@
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/postgres # could be hardcoded, but using env variables are better to not expose credentials
+    url: jdbc:postgresql://project-two.cbntystg7uz2.us-east-2.rds.amazonaws.com:5432/postgres # could be hardcoded, but using env variables are better to not expose credentials
     username: postgres
-    password: 
+    password: Pokemon!
   jpa:
     database-platform: org.hibernate.dialect.PostgreSQLDialect
     hibernate:

@@ -1,4 +1,4 @@
-package com.revature.driver;
+package com.revature;
 
 import java.util.List;
 
