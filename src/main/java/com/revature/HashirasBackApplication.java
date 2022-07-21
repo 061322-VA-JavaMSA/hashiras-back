@@ -33,7 +33,7 @@ public class HashirasBackApplication {
 }
 //@Component
 //class AppStartupRunner implements ApplicationRunner {
-
+//
 //	@Autowired
 //	private AnimeListService as;
 //	@Autowired
@@ -44,7 +44,7 @@ public class HashirasBackApplication {
 //    public void run(ApplicationArguments args) throws Exception {
 //    	us.updateInfo("charles", "galbert","galbert@galbert.com", 1);
 //    	us.updatePassword("12345", 1);
-
+//
 //		List<AnimeList> al = as.getAnimeList();
 //		System.out.println(al.toString());
 //    	User user = new User();
@@ -55,7 +55,7 @@ public class HashirasBackApplication {
 //    	animeList.setUser(user);
 //    	animeList.setStatus(ListStatus.CURRENTLY);
 //    	as.addAnimeList(animeList);
-    	
+//    	
 //    	List<User> users = us.getUsers();
 //    	System.out.println(users.toString());
 //    	user.setUsername("charles");;
@@ -68,6 +68,6 @@ public class HashirasBackApplication {
 //    	User principal = ur.findUserByUsername("LaneM123");
 //    	
 //    	System.out.println(principal);
- 
+    	
 //    }
 //}
