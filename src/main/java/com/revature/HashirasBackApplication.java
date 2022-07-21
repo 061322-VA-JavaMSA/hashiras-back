@@ -24,15 +24,15 @@ public class HashirasBackApplication {
 	
 
 }
-@Component
-class AppStartupRunner implements ApplicationRunner {
-
-	@Autowired
-	private AnimeListService as;
-	private UserService us;
+//@Component
+//class AppStartupRunner implements ApplicationRunner {
+//
+//	@Autowired
+//	private AnimeListService as;
+//	private UserService us;
 	
-    @Override
-    public void run(ApplicationArguments args) throws Exception {
+//    @Override
+//    public void run(ApplicationArguments args) throws Exception {
 //		List<AnimeList> al = as.getAnimeList();
 //		System.out.println(al.toString());
 //    	User user = new User();
@@ -45,8 +45,8 @@ class AppStartupRunner implements ApplicationRunner {
 //    	animeList.setStatus(ListStatus.VIEWED);
 //    	as.addAnimeList(animeList);
 //    	
-    	List<User> users = us.getUsers();
+//    	List<User> users = us.getUsers();
 //    	System.out.println(users.toString());
     	
-    }
-}
+//    }
+//}
