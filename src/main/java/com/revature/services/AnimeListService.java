@@ -5,18 +5,18 @@ import java.util.List;
 import javax.persistence.Id;
 import javax.transaction.Transactional;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.revature.exceptions.AnimeListNotFoundException;
 import com.revature.models.AnimeList;
+import com.revature.models.ListStatus;
 import com.revature.models.User;
 import com.revature.repositories.AnimeListRepository;
 
 @Service
 public class AnimeListService {
 	
- 
-
 	private AnimeListRepository alr;
 	
 	public AnimeListService(AnimeListRepository alr) {
@@ -36,22 +36,27 @@ public class AnimeListService {
 	}
 	
 	@Transactional
+	public AnimeList findAnimeListByUserAndAnimeId(User user,int anime_id) {
+		AnimeList animelist = alr.findAnimeListByUserAndAnimeId(user,anime_id);
+		return animelist;
+	}
+
+	
+	@Transactional
+	public List<AnimeList> findAnimeListByAnimeId(int anime_id) {
+		List<AnimeList> animelist = alr.findAnimeListByAnimeId(anime_id);
+		return animelist;
+	}
+	@Transactional
 	public List<AnimeList> findAnimeListByUser(User user) {
 		List<AnimeList> animelist = alr.findAnimeListByUser(user);
 		return animelist;
 	}
 
-	@Transactional
-	public List<AnimeList> findAnimeListByUserAnimeId(User user,int anime_id) {
-		List<AnimeList> animelist = alr.findAnimeListByUserAnimeId(user,anime_id);
+	public List<AnimeList> findAnimeListByUserAndAnimeIdAndStatus(User user,int anime_id,String status) {
+		List<AnimeList> animelist = alr.findAnimeListByUserAndAnimeIdAndStatus(user,anime_id,status);
 		return animelist;
-	}
-	
-	@Transactional
-	public List<AnimeList> findAnimeListByStatus(User user,int anime_id,String status) {
-		List<AnimeList> animelist = alr.findAnimeListByStatus(user,anime_id,status);
-		return animelist;
-	}
+	}	
 	
 	@Transactional
 	public AnimeList addAnimeList(AnimeList animelist) {

@@ -2,6 +2,8 @@ package com.revature.dto;
 
 import java.util.Objects;
 
+import com.revature.models.User;
+
 public class UserDTO {
 
 	private int id;
@@ -10,6 +12,14 @@ public class UserDTO {
 	private String lname;
 	private String email;
 	private int status;
+	public UserDTO(User u) {
+		this.id = u.getId();
+		this.username = u.getUsername();
+		this.fname = u.getFname();
+		this.lname = u.getLname();
+		this.email = u.getEmail();
+		this.status = u.getStatus();
+	}
 	public int getId() {
 		return id;
 	}

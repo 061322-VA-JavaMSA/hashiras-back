@@ -10,7 +10,14 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.stereotype.Component;
 
 import com.revature.models.AnimeList;
+<<<<<<< HEAD
 import com.revature.services.AnimeListService;
+=======
+import com.revature.models.ListStatus;
+import com.revature.models.User;
+import com.revature.services.AnimeListService;
+import com.revature.services.UserService;
+>>>>>>> a7a375896a670d4a66c90ddeffdcb40af6c78275
 
 @SpringBootApplication
 public class HashirasBackApplication {
@@ -19,6 +26,7 @@ public class HashirasBackApplication {
 		SpringApplication.run(HashirasBackApplication.class, args);
 	}
 	
+<<<<<<< HEAD
 	@Component
 	class AppStartupRunner implements ApplicationRunner {
 	
@@ -33,3 +41,40 @@ public class HashirasBackApplication {
 	    }
 	}
 }
+=======
+
+}
+//@Component
+//class AppStartupRunner implements ApplicationRunner {
+//
+//	@Autowired
+//	private AnimeListService as;
+//	@Autowired
+//	private UserService us;
+//	
+//    @Override
+//    public void run(ApplicationArguments args) throws Exception {
+//		List<AnimeList> al = as.getAnimeList();
+//		System.out.println(al.toString());
+//    	User user = new User();
+//  	
+//    	user.setId(6);
+//    	user.setFname("g");;
+//    	AnimeList animeList = new AnimeList();
+//    	animeList.setAnimeId(20);
+//    	animeList.setUser(user);
+//    	animeList.setStatus(ListStatus.VIEWED);
+//    	as.addAnimeList(animeList);
+//    	
+//    	List<User> users = us.getUsers();
+//    	System.out.println(users.toString());
+//    	user.setUsername("charles");;
+//    	user.setEmail("charles@charles.com");
+//    	user.setPassword("12345");
+//    	user.setFname("charles");
+//    	user.setLname("albert");
+//    	user.setStatus(1);
+//    	us.addUser(user);
+//    }
+//}
+>>>>>>> a7a375896a670d4a66c90ddeffdcb40af6c78275
