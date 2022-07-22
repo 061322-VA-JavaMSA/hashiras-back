@@ -68,4 +68,18 @@ public class AnimeListController {
 		AnimeListDTO animeListDTO = new AnimeListDTO(newAnimeList);
 		return new ResponseEntity<>(animeListDTO, HttpStatus.CREATED);
  	}
+
+	 @GetMapping("/{id}/{status}")
+	 public ResponseEntity<List<AnimeListDTO>> getListByUserIdAndStatus(@PathVariable("id") int id, @PathVariable("status") String status) throws UserNotFoundException{
+		List<AnimeListDTO> animeDTO = new ArrayList<>();
+		List<AnimeList> animelist = null;
+
+		animelist = as.findAnimeListByUserIdAndStatus(id, status);
+
+		for(AnimeList al : animelist) {
+			animeDTO.add(new AnimeListDTO(al));
+		}
+
+		return new ResponseEntity<>(animeDTO, HttpStatus.OK);
+	}
 }
