@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -22,6 +23,7 @@ import com.revature.models.ListStatus;
 import com.revature.services.AnimeListService;
 import com.revature.services.UserService;
 
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/anime")
 public class AnimeListController {
@@ -39,7 +41,6 @@ public class AnimeListController {
 			try {
 				anime = as.findAnimeListByUser(us.getUserById(id));
 			} catch (UserNotFoundException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			
@@ -61,7 +62,6 @@ public class AnimeListController {
 		} catch (UserNotFoundException e) {
  			e.printStackTrace();
 		}
-//		al.setUsercomment(reqAnimeListDTO.getUsercomment());
 		al.setUser_rating(reqAnimeListDTO.getUser_rating());
 		al.setStatus(ListStatus.valueOf(reqAnimeListDTO.getStatus()));
 		AnimeList newAnimeList = as.addAnimeList(al);
