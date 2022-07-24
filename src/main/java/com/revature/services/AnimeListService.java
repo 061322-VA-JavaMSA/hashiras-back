@@ -41,18 +41,19 @@ public class AnimeListService {
 		return animelist;
 	}
 
-	
 	@Transactional
 	public List<AnimeList> findAnimeListByAnimeId(int anime_id) {
 		List<AnimeList> animelist = alr.findAnimeListByAnimeId(anime_id);
 		return animelist;
 	}
+	
 	@Transactional
 	public List<AnimeList> findAnimeListByUser(User user) {
 		List<AnimeList> animelist = alr.findAnimeListByUser(user);
 		return animelist;
 	}
 
+	@Transactional
 	public List<AnimeList> findAnimeListByUserAndAnimeIdAndStatus(User user,int anime_id,String status) {
 		List<AnimeList> animelist = alr.findAnimeListByUserAndAnimeIdAndStatus(user,anime_id,status);
 		return animelist;
