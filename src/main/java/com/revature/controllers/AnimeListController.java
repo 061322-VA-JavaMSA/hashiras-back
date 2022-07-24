@@ -52,6 +52,40 @@ public class AnimeListController {
 			return new ResponseEntity<>(animeDTO, HttpStatus.OK);
 	}
 	
+	/* Get Anime List by User ID and Anime ID */
+	@GetMapping("/user/{user_id}/anime/{anime_id}")
+	public ResponseEntity<AnimeList> findAnimeListByUserAndAnimeId(@PathVariable("user_id") int user_id,@PathVariable("anime_id") int anime_id){
+ 			AnimeList anime = null;
+			User user = new User();
+ 			
+			try {
+				user = us.getUserById(user_id);
+				anime = as.findAnimeListByUserAndAnimeId(user,anime_id);
+			} catch (UserNotFoundException e) {
+				e.printStackTrace();
+			}
+			
+ 
+			return new ResponseEntity<>(anime, HttpStatus.OK);
+	}
+	
+	/* Get anime by user */
+	@GetMapping("/user/{user_id}")
+	public ResponseEntity<List<AnimeList>> findAnimeListByUser(@PathVariable("user_id") int user_id){
+			List<AnimeList> anime = null;
+			User user = new User();
+ 			
+			try {
+				user = us.getUserById(user_id);
+				anime = as.findAnimeListByUser(user);
+			} catch (UserNotFoundException e) {
+				e.printStackTrace();
+			}
+			
+ 
+			return new ResponseEntity<>(anime, HttpStatus.OK);
+	}
+	
 	/* Add an anime to the user's list */
 	@PostMapping
 	public ResponseEntity<AnimeListDTO> createAnime(@RequestBody ReqAnimeListDTO reqAnimeListDTO){	

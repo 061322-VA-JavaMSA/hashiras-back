@@ -19,11 +19,10 @@ import javax.persistence.Table;
 @Table(name="lists")
 public class AnimeList implements Serializable  {
 	
-//	@Id
-//	@GeneratedValue(strategy=GenerationType.IDENTITY)
-//	private int id;
-	
 	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private int id;
+	
 	@Column (name = "anime_id")
  	private int animeId;
 	 
@@ -32,22 +31,20 @@ public class AnimeList implements Serializable  {
 	@JoinColumn(name = "user_id")		
 	private User user;
     
-//    @Column
-//	private String usercomment;
-	
     @Column
 	private int user_rating;
     
 	@Enumerated(EnumType.STRING)
 	private ListStatus status;
 
-//	public int getId() {
-//		return id;
-//	}
-//
-//	public void setId(int id) {
-//		this.id = id;
-//	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
 
  
 	public User getUser() {
@@ -57,14 +54,6 @@ public class AnimeList implements Serializable  {
 	public void setUser(User user) {
 		this.user = user;
 	}
-
-//	public String getUsercomment() {
-//		return usercomment;
-//	}
-//
-//	public void setUsercomment(String usercomment) {
-//		this.usercomment = usercomment;
-//	}
 
 	public int getUser_rating() {
 		return user_rating;
@@ -92,7 +81,7 @@ public class AnimeList implements Serializable  {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(animeId, status, user, user_rating);
+		return Objects.hash(animeId, id, status, user, user_rating);
 	}
 
 	@Override
@@ -104,9 +93,16 @@ public class AnimeList implements Serializable  {
 		if (getClass() != obj.getClass())
 			return false;
 		AnimeList other = (AnimeList) obj;
-		return animeId == other.animeId && status == other.status && Objects.equals(user, other.user)
+		return animeId == other.animeId && id == other.id && status == other.status && Objects.equals(user, other.user)
 				&& user_rating == other.user_rating;
 	}
 
+	@Override
+	public String toString() {
+		return "AnimeList [id=" + id + ", animeId=" + animeId + ", user=" + user + ", user_rating=" + user_rating
+				+ ", status=" + status + "]";
+	}
+
+ 
  
 }
