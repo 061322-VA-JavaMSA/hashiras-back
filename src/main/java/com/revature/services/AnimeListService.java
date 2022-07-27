@@ -19,6 +19,7 @@ public class AnimeListService {
 	
 	private AnimeListRepository alr;
 	
+	@Autowired
 	public AnimeListService(AnimeListRepository alr) {
 		super();
 		this.alr = alr;
@@ -65,4 +66,16 @@ public class AnimeListService {
 		return alr.save(animelist);
 	}
 	
+	@Transactional
+	public int updateStatusById(ListStatus status,int id) {
+		  int success = alr.updateStatusById(status,id);
+		return success;
+	}	
+
+	
+	@Transactional
+	public int updateRatingById(int user_rating,int id) {
+ 		  int success = alr.updateRatingById(user_rating,id);
+		return success;
+	}	
 }

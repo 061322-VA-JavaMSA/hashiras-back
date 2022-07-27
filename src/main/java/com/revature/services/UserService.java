@@ -14,10 +14,10 @@ import com.revature.repositories.UserRepository;
 @Service
 public class UserService {
 	
-	@Autowired
+	
 	private UserRepository ur;
 	
-	 
+	@Autowired 
 	public UserService(UserRepository ur) {
 		super();
 		this.ur = ur;

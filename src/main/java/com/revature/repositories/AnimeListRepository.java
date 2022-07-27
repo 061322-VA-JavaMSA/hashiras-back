@@ -24,4 +24,12 @@ public interface AnimeListRepository extends JpaRepository<AnimeList, Integer> {
 	@Transactional 
 	@Modifying
 	@Query("update AnimeList set status = ?1 where animeId = ?2 and user = ?3") int updateStatus(ListStatus status,int anime_id,User user);
+	
+	@Transactional 
+	@Modifying
+	@Query("update AnimeList set status = ?1 where id = ?2") int updateStatusById(ListStatus status,int id);
+	
+	@Transactional 
+	@Modifying
+	@Query("update AnimeList set user_rating = ?1 where id = ?2") int updateRatingById(int user_rating,int id);
 }

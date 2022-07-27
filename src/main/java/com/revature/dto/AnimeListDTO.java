@@ -17,14 +17,14 @@ public class AnimeListDTO {
  
 	private int id;
  	private int anime_id;
-	private User user;
+	private UserDTO user;
 	private int user_rating;
 	private String status;
 	
 	public AnimeListDTO(AnimeList al) {
 		this.id = al.getId();
 		this.anime_id = al.getAnimeId();
-		this.user = al.getUser();
+		this.user = new UserDTO(al.getUser());
 		this.user_rating = al.getUser_rating();
 		this.status = al.getStatus().toString();
 	}
@@ -45,13 +45,7 @@ public class AnimeListDTO {
 		this.anime_id = anime_id;
 	}
 
-	public User getUser() {
-		return user;
-	}
-
-	public void setUser(User user) {
-		this.user = user;
-	}
+ 
 
 	public int getUser_rating() {
 		return user_rating;
@@ -67,6 +61,14 @@ public class AnimeListDTO {
 
 	public void setStatus(String status) {
 		this.status = status;
+	}
+
+	public UserDTO getUser() {
+		return user;
+	}
+
+	public void setUser(UserDTO user) {
+		this.user = user;
 	}
 
 	@Override
@@ -92,6 +94,8 @@ public class AnimeListDTO {
 		return "AnimeListDTO [id=" + id + ", anime_id=" + anime_id + ", user=" + user + ", user_rating=" + user_rating
 				+ ", status=" + status + "]";
 	}
+
+ 
  
 
 }
