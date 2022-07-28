@@ -1,10 +1,10 @@
 package com.revature.services;
 
+
 import java.util.List;
 
 import javax.persistence.Id;
 import javax.transaction.Transactional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -77,5 +77,11 @@ public class AnimeListService {
 	public int updateRatingById(int user_rating,int id) {
  		  int success = alr.updateRatingById(user_rating,id);
 		return success;
+	}	
+	
+	@Transactional
+	public void deleteAnimeListById(int id) throws AnimeListNotFoundException {
+ 		   alr.deleteById(id);
+
 	}	
 }

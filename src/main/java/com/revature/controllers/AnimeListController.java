@@ -1,5 +1,6 @@
 package com.revature.controllers;
 
+import java.io.Console;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -8,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -155,5 +157,25 @@ public class AnimeListController {
  		int num = as.updateRatingById(user_rating,id);
 		boolean bol = (num >= 1) ? true:false;
 		return new ResponseEntity<>(bol, HttpStatus.ACCEPTED);	
+	}
+	
+	@DeleteMapping("/{id}")
+	public ResponseEntity<Boolean> deleteById(@PathVariable("id") int id){
+		AnimeList anime = null;
+		try {
+			anime = as.getAnimeListById(id);
+			
+		} catch (AnimeListNotFoundException e) {
+			return new ResponseEntity<>(false, HttpStatus.NOT_ACCEPTABLE);
+		}
+		if(anime != null) {
+			try {
+				as.deleteAnimeListById(id);
+			} catch (AnimeListNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return new ResponseEntity<>(true, HttpStatus.OK);
 	}
 }

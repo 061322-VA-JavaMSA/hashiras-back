@@ -55,7 +55,7 @@ public class HashirasBackApplication {
 //    	animeList.setUser(user);
 //    	animeList.setStatus(ListStatus.CURRENTLY);
 //    	as.addAnimeList(animeList);
-    	
+//    	
 //    	user = us.getUserById(1);
 //    	AnimeList animeList = as.findAnimeListByUserAndAnimeId(user, 16099);
 //    	System.out.println(animeList.getAnimeId());
@@ -72,5 +72,7 @@ public class HashirasBackApplication {
 //    	
 //    	System.out.println(principal);
     	
+//    	long lg = as.deleteAnimeListById(20);
+//    	System.out.println(lg);
 //    }
 //}
