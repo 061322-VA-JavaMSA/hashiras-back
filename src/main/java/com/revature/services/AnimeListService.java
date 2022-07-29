@@ -64,8 +64,8 @@ public class AnimeListService {
 		return alr.save(animelist);
 	}
 
-	public List<AnimeList> findAnimeListByUserIdAndStatus(int id, String status) {
-		List<AnimeList> animelist = alr.findAnimeListByUserIdAndStatus(id, status);
+	public List<AnimeList> findAnimeListByUserAndStatus(User user, ListStatus status) {
+		List<AnimeList> animelist = alr.findAnimeListByUserAndStatus(user, status);
 		return animelist;
 	}	
 }

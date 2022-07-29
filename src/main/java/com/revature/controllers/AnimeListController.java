@@ -15,10 +15,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.revature.dto.AnimeListDTO;
 import com.revature.dto.ReqAnimeListDTO;
-import com.revature.dto.UserDTO;
 import com.revature.exceptions.UserNotFoundException;
 import com.revature.models.AnimeList;
 import com.revature.models.ListStatus;
+import com.revature.models.User;
 import com.revature.services.AnimeListService;
 import com.revature.services.UserService;
 
@@ -69,17 +69,22 @@ public class AnimeListController {
 		return new ResponseEntity<>(animeListDTO, HttpStatus.CREATED);
  	}
 
-	 @GetMapping("/{id}/{status}")
+	 @GetMapping("user/{id}/status/{status}")
 	 public ResponseEntity<List<AnimeListDTO>> getListByUserIdAndStatus(@PathVariable("id") int id, @PathVariable("status") String status) throws UserNotFoundException{
+		 System.out.println(id);
+		 System.out.println(status);
+		User u = us.getUserById(id);
+	 
 		List<AnimeListDTO> animeDTO = new ArrayList<>();
 		List<AnimeList> animelist = null;
 
-		animelist = as.findAnimeListByUserIdAndStatus(id, status);
+		animelist = as.findAnimeListByUserAndStatus(u, ListStatus.valueOf(status));
 
 		for(AnimeList al : animelist) {
 			animeDTO.add(new AnimeListDTO(al));
 		}
 
 		return new ResponseEntity<>(animeDTO, HttpStatus.OK);
+		 
 	}
 }
