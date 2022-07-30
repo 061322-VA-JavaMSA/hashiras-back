@@ -40,7 +40,7 @@ public class UserService {
 	
 	@Transactional
 	public int updateInfo(String fname,String lname,String email, int id) {
-		return updateInfo( fname, lname, email,  id);
+		return ur.updateInfo( fname, lname, email,  id);
 	}
 	
 	@Transactional
