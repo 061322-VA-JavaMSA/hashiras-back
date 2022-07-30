@@ -1,11 +1,9 @@
 package com.revature.controllers;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -21,6 +19,7 @@ import com.revature.models.User;
 import com.revature.repositories.UserRepository;
 import com.revature.services.UserService;
 
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/users")
 public class UserController {
@@ -38,32 +37,6 @@ public class UserController {
 	public UserController(UserService us) {
 		super();
 		this.us = us;
-	}
-	
-//	@GetMapping
-//	@ResponseBody
-//	public List<UserDTO> getAllUsers(){
-//		List<User> users = us.getUsers();
-//		List<UserDTO> usersDTO = new ArrayList<>();
-//		
-//		for(User u : users) {
-//			usersDTO.add(new UserDTO(u));
-//		}
-//		
-//		return usersDTO;
-//	}
-	
-	@GetMapping
-//	@ResponseBody
-	public ResponseEntity<List<UserDTO>> getAllUsers(){
-		List<UserDTO> usersDTO = new ArrayList<>();
-		List<User> users; 
-		 users = us.getUsers();
-		for(User u : users) {
-			usersDTO.add(new UserDTO(u));
-		}
-		
-		return new ResponseEntity<>(usersDTO, HttpStatus.OK);
 	}
 	
 	@GetMapping("/{id}")
@@ -90,20 +63,16 @@ public class UserController {
 	}
 	
  	@PutMapping
-	public ResponseEntity<UserDTO> updateUser(@RequestParam(name="fname") String fname,@RequestParam(name="lname") String lname,@RequestParam(name="email") String email, @RequestParam(name="password") String password, @RequestParam(name="id") int id){
-
-		ur.updateInfo(fname, lname, email, id);
+	public ResponseEntity<Boolean> updateUser(@RequestParam(name="fname") String fname,@RequestParam(name="lname") String lname,@RequestParam(name="email") String email, @RequestParam(name="password") String password, @RequestParam(name="id") int id){
+		int bol = us.updateInfo(fname, lname, email, id);
 		if(!password.isEmpty()) {
-			ur.updatePassword(password, id);
+			us.updatePassword(password, id);
 		}
- 		UserDTO userDTO = null;
-		try {
-			userDTO = new UserDTO(us.getUserById(id));
-		} catch (UserNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+ 
+		if(bol >= 1) {	
+			return new ResponseEntity<>(true, HttpStatus.OK);
+		} else {
+			return new ResponseEntity<>(false, HttpStatus.BAD_REQUEST);
 		}
-		
-		return new ResponseEntity<>(userDTO, HttpStatus.ACCEPTED);
 	}	
 }
