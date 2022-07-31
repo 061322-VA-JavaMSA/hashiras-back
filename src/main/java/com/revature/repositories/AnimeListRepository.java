@@ -19,7 +19,17 @@ public interface AnimeListRepository extends JpaRepository<AnimeList, Integer> {
 	AnimeList findAnimeListByUserAndAnimeId(User user,int anime_id);
 	List<AnimeList>  findAnimeListByAnimeId(int anime_id);
 	List<AnimeList> findAnimeListByUserAndAnimeIdAndStatus(User user,int anime_id,String status);
+	List<AnimeList> findAnimeListByAnimeIdAndStatus(int anime_id,String status);
+	
 	@Transactional 
 	@Modifying
 	@Query("update AnimeList set status = ?1 where animeId = ?2 and user = ?3") int updateStatus(ListStatus status,int anime_id,User user);
+	
+	@Transactional 
+	@Modifying
+	@Query("update AnimeList set status = ?1 where id = ?2") int updateStatusById(ListStatus status,int id);
+	
+	@Transactional 
+	@Modifying
+	@Query("update AnimeList set user_rating = ?1 where id = ?2") int updateRatingById(int user_rating,int id);
 }
