@@ -45,6 +45,6 @@ public class UserService {
 	
 	@Transactional
 	public int updatePassword(String password, int id) {
-		return updatePassword( password,  id);
+		return ur.updatePassword( password,  id);
 	}
 }
