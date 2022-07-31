@@ -1,6 +1,7 @@
 package com.revature.controllers;
 
 import java.io.Console;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -30,7 +31,7 @@ import com.revature.repositories.AnimeListRepository;
 import com.revature.services.AnimeListService;
 import com.revature.services.UserService;
 
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping("/anime")
 public class AnimeListController {
@@ -92,7 +93,7 @@ public class AnimeListController {
 	public ResponseEntity<List<AnimeListDTO>> findAnimeListByUser(@PathVariable("user_id") int user_id){
 			List<AnimeList> anime = null;
 			User user = new User();
-			List<AnimeListDTO> animeListDTO = null;
+			List<AnimeListDTO> animeListDTO =  new ArrayList<>();
 
 			try {
 				user = us.getUserById(user_id);
@@ -178,4 +179,5 @@ public class AnimeListController {
 		}
 		return new ResponseEntity<>(true, HttpStatus.OK);
 	}
+
 }
