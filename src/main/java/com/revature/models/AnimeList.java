@@ -27,7 +27,6 @@ public class AnimeList implements Serializable  {
 	@Column (name = "anime_id")
  	private int animeId;
 	 
-	
 	@ManyToOne(targetEntity=User.class)
 	@JoinColumn(name = "user_id")		
 	private User user;
