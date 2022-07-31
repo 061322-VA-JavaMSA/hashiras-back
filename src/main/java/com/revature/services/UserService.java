@@ -14,10 +14,10 @@ import com.revature.repositories.UserRepository;
 @Service
 public class UserService {
 	
-	@Autowired
+	
 	private UserRepository ur;
 	
-	 
+	@Autowired 
 	public UserService(UserRepository ur) {
 		super();
 		this.ur = ur;
@@ -40,11 +40,11 @@ public class UserService {
 	
 	@Transactional
 	public int updateInfo(String fname,String lname,String email, int id) {
-		return updateInfo( fname, lname, email,  id);
+		return ur.updateInfo( fname, lname, email,  id);
 	}
 	
 	@Transactional
 	public int updatePassword(String password, int id) {
-		return updatePassword( password,  id);
+		return ur.updatePassword( password,  id);
 	}
 }

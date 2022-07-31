@@ -2,5 +2,11 @@
 
 # Backend of the Hashiras Dev Branch
 
-# Glenn is the best
-# new edit _ 1
+# Back-end for the Web Application Hashira Lists
+
+
+# Set Up
+## Database
+### The Database used for this back-end is a postgresql database
+### Database can either be in the cloud (preferred) or locally
+
