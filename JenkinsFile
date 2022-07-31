@@ -7,7 +7,7 @@ pipeline {
                 script{
                     properties([pipelineTriggers([githubPush()])])
                 }
-                git branch 'dev', url: 'https://github.com/061322-VA-JavaMSA/hashiras-back'
+                git branch: 'dev', url: 'https://github.com/061322-VA-JavaMSA/hashiras-back'
             }
         }
 
