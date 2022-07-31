@@ -65,6 +65,13 @@ public class AnimeListService {
  		
 		return alr.save(animelist);
 	}
+
+
+	public List<AnimeList> findAnimeListByUserAndStatus(User user, ListStatus status) {
+		List<AnimeList> animelist = alr.findAnimeListByUserAndStatus(user, status);
+		return animelist;
+	}	
+
 	
 	@Transactional
 	public int updateStatusById(ListStatus status,int id) {

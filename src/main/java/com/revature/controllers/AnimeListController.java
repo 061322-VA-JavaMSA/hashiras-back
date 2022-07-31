@@ -31,7 +31,7 @@ import com.revature.repositories.AnimeListRepository;
 import com.revature.services.AnimeListService;
 import com.revature.services.UserService;
 
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/anime")
 public class AnimeListController {
@@ -138,6 +138,27 @@ public class AnimeListController {
 		} 
 		return new ResponseEntity<>(animeListDTO, HttpStatus.CONFLICT);	
  	}
+ 
+
+	 @GetMapping("user/{id}/status/{status}")
+	 public ResponseEntity<List<AnimeListDTO>> getListByUserIdAndStatus(@PathVariable("id") int id, @PathVariable("status") String status) throws UserNotFoundException{
+		 System.out.println(id);
+		 System.out.println(status);
+		User u = us.getUserById(id);
+	 
+		List<AnimeListDTO> animeDTO = new ArrayList<>();
+		List<AnimeList> animelist = null;
+
+		animelist = as.findAnimeListByUserAndStatus(u, ListStatus.valueOf(status));
+
+		for(AnimeList al : animelist) {
+			animeDTO.add(new AnimeListDTO(al));
+		}
+
+		return new ResponseEntity<>(animeDTO, HttpStatus.OK);
+		 
+	}
+ 
 	
 	@PutMapping("/{id}/status")
 	public ResponseEntity<Boolean> updateStatusById(@PathVariable("id") int id,@RequestParam(name="status", required=false) String reqStatus){	
@@ -179,5 +200,5 @@ public class AnimeListController {
 		}
 		return new ResponseEntity<>(true, HttpStatus.OK);
 	}
-
+ 
 }
