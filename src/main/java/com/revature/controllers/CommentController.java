@@ -45,12 +45,12 @@ public class CommentController {
 	}
 	
 	@GetMapping
-	public ResponseEntity<CommentDTO> createComment(@RequestParam(name = "animeId") int animeId, @RequestParam(name = "author") int userId,  @RequestParam(name = "comment") String comment) {
+	public ResponseEntity<CommentDTO> createComment(@RequestParam(name = "animeId") String animeId, @RequestParam(name = "author") String userId,  @RequestParam(name = "comment") String comment) {
 		System.out.println("Im here");
 		AnimeComments newComment = new AnimeComments();
-		newComment.setAnimeId(animeId);
+		newComment.setAnimeId(Integer.valueOf(userId));
 		try {
-			newComment.setAuthor(us.getUserById(userId));
+			newComment.setAuthor(us.getUserById(Integer.valueOf(userId)));
 		} catch (UserNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
