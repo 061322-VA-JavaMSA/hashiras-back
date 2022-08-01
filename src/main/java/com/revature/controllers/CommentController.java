@@ -48,7 +48,7 @@ public class CommentController {
 	public ResponseEntity<CommentDTO> createComment(@RequestParam(name = "animeId") String animeId, @RequestParam(name = "author") String userId,  @RequestParam(name = "comment") String comment) {
 		System.out.println("Im here");
 		AnimeComments newComment = new AnimeComments();
-		newComment.setAnimeId(Integer.valueOf(userId));
+		newComment.setAnimeId(Integer.valueOf(animeId));
 		try {
 			newComment.setAuthor(us.getUserById(Integer.valueOf(userId)));
 		} catch (UserNotFoundException e) {
