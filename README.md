@@ -1,12 +1,12 @@
-# hashiras-back
+# Project Description
+Hashira's Lists is a webb app where users can create and share lists that tracks current, future, past and dropped Anime.\
+On the homepafe, a user is able to browse animes based on the year and season in which they were aired.
 
-# Backend of the Hashiras Dev Branch
+# HashirasBack
+This project utilizes spring boot for the backend wireframe. \
+This project uses Junit for testing. \
+This project uses Maven for dependency management.
 
-# Back-end for the Web Application Hashira Lists
-
-
-# Set Up
-## Database
-### The Database used for this back-end is a postgresql database
-### Database can either be in the cloud (preferred) or locally
+# Database
+The Database utilizes AWS and PostgreSQL.
 
