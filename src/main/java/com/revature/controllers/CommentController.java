@@ -9,6 +9,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -38,12 +40,17 @@ public class CommentController {
 		for(AnimeComments ac: comments) {
 			commentDTO.add(new CommentDTO(ac));
 		}
-		
-		
-		
-
 		return new ResponseEntity<>(commentDTO, HttpStatus.OK);
+	}
+	
+	@PostMapping
+	public ResponseEntity<CommentDTO> createComment(@RequestBody AnimeComments comment) {
 		
+		AnimeComments newComment = cs.createComment(comment);
+		
+		CommentDTO commentDTO = new CommentDTO(newComment);
+		
+		return new ResponseEntity<CommentDTO>(commentDTO, HttpStatus.CREATED);
 	}
 
 }

@@ -27,6 +27,12 @@ public class CommentService {
 		List<AnimeComments> comments = cr.findAnimeCommentsByAnimeId(id);
 		return comments;
 	}
+	
+	@Transactional
+	public AnimeComments createComment(AnimeComments comment) {
+		AnimeComments comments = cr.createComment(comment);
+		return comments;
+	}
 //	@Transactional
 //	public List<AnimeComments> findCommentsByAnimeIdAndUser(int id, User user) {
 //		List<AnimeComments> comments = cr.findAnimeCommentsByAnimeIdAndUser(id, user);
