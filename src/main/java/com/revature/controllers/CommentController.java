@@ -45,8 +45,9 @@ public class CommentController {
 	
 	@PostMapping
 	public ResponseEntity<CommentDTO> createComment(@RequestBody AnimeComments comment) {
-		
+		System.out.println("Im here");
 		AnimeComments newComment = cs.createComment(comment);
+		
 		
 		CommentDTO commentDTO = new CommentDTO(newComment);
 		
