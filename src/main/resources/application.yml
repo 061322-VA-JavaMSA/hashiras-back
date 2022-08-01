@@ -1,0 +1,10 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://project-two.cbntystg7uz2.us-east-2.rds.amazonaws.com:5432/postgres # could be hardcoded, but using env variables are better to not expose credentials
+    username: postgres
+    password: Pokemon!
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: validate
+ 
