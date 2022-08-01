@@ -9,14 +9,15 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.revature.dto.CommentDTO;
+import com.revature.exceptions.UserNotFoundException;
 import com.revature.models.AnimeComments;
 import com.revature.services.CommentService;
+import com.revature.services.UserService;
 
 
 @CrossOrigin(origins = "*")
@@ -26,8 +27,8 @@ public class CommentController {
 	@Autowired
 	private CommentService cs;
 	
-//	@Autowired
-//	private UserService us;
+	@Autowired
+	private UserService us;
 	
 	
 	@GetMapping("/{anime_id}")
@@ -43,10 +44,20 @@ public class CommentController {
 		return new ResponseEntity<>(commentDTO, HttpStatus.OK);
 	}
 	
-	@PostMapping
-	public ResponseEntity<CommentDTO> createComment(@RequestBody AnimeComments comment) {
+	@GetMapping
+	public ResponseEntity<CommentDTO> createComment(@RequestParam(name = "animeId") int animeId, @RequestParam(name = "author") int userId,  @RequestParam(name = "comment") String comment) {
 		System.out.println("Im here");
-		AnimeComments newComment = cs.createComment(comment);
+		AnimeComments newComment = new AnimeComments();
+		newComment.setAnimeId(animeId);
+		try {
+			newComment.setAuthor(us.getUserById(userId));
+		} catch (UserNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		newComment.setComment(comment);
+		
+		cs.createComment(newComment);
 		
 		
 		CommentDTO commentDTO = new CommentDTO(newComment);
