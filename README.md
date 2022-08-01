@@ -12,4 +12,7 @@
 ### Database can either be in the cloud (preferred) or locally
 ## The Properties File needs to be set up with login information to access your database
 
+## Spring Boot
+### The pom.xml file will need to be edited to suit your needs.
+
 
