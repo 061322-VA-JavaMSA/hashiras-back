@@ -30,8 +30,7 @@ public class CommentService {
 	
 	@Transactional
 	public AnimeComments createComment(AnimeComments comment) {
-		AnimeComments comments = cr.createComment(comment);
-		return comments;
+		return cr.save(comment);
 	}
 //	@Transactional
 //	public List<AnimeComments> findCommentsByAnimeIdAndUser(int id, User user) {

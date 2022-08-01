@@ -16,8 +16,7 @@ import com.revature.services.AuthService;
 
 @RestController
 @RequestMapping("/auth")
-@CrossOrigin(exposedHeaders="Authorization")
-// basically @Controller which implicitely adds @ResponseBody to all methods declared
+@CrossOrigin(exposedHeaders="Authorization", origins="*")
 public class AuthController {
 
 	private AuthService as;
